@@ -32,8 +32,7 @@
       max-width: 900px;
       background: #333;
       color: #fff;
-      overflow: auto;
-      white-space: nowrap;
+      overflow: hidden;
       border-radius: 14px;
       margin-bottom: 24px;
     }
@@ -43,13 +42,17 @@
       padding: 0;
       margin: 0;
       display: flex;
+      flex-wrap: wrap;
     }
 
     .nav-modern a {
       color: #fff;
       text-decoration: none;
-      padding: 10px 15px;
+      padding: 12px 15px;
       display: block;
+      text-align: center;
+      flex: 1 1 auto;
+      white-space: nowrap;
     }
 
     .nav-modern a:hover {
