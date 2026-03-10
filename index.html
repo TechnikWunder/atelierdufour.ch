@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="de-CH">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slideshow</title>
+
+  <style>
+    :root {
+      --bg: color(display-p3 .941 .898 .867);
+      --card: rgba(20, 20, 26, .92);
+      --shadow: 0 18px 60px rgba(0, 0, 0, .22);
+      --radius: 18px;
+      --btnText: #101114;
+      --maxw: 1100px;
+      --dur: 420ms;
+      --ease: cubic-bezier(.22, .8, .2, 1);
+    }
+
+    @supports not (color: color(display-p3 1 1 1)) {
+      :root {
+        --bg: rgb(240, 229, 221);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+      background: var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    /* Navigation */
+    .nav-modern {
+      width: 100%;
+      background: #333;
+      color: #fff;
+      overflow: auto;
+      white-space: nowrap;
+      border-radius: 14px;
+      margin-bottom: 16px;
+    }
+
+    .nav-modern ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .nav-modern a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      line-height: normal;
+    }
+
+    .nav-modern a:hover {
+      background: #666;
+      text-decoration: none;
+    }
+
+    /* Slider */
+    .slider {
+      width: min(100%, var(--maxw));
+      aspect-ratio: 16/9;
+      min-height: 320px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      user-select: none;
+      touch-action: pan-y;
+    }
+
+    .layer {
+      position: absolute;
+      inset: 0;
+      transform: translateX(100%);
+    }
+
+    .layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+
+    .controls {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      pointer-events: none;
+    }
+
+    .btn {
+      pointer-events: auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255, 255, 255, .92);
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      background: linear-gradient(to top, rgba(0, 0, 0, .55), transparent);
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255, 255, 255, .35);
+      cursor: pointer;
+    }
+
+    .dot[aria-current="true"] {
+      width: 22px;
+      background: rgba(255, 255, 255, .9);
+    }
+
+    .pill {
+      background: rgba(255, 255, 255, .16);
+      padding: 6px 10px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill input {
+      cursor: pointer;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      :root {
+        --dur: 0ms;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav-modern">
+    <ul>
+      <li><a href="/" aria-current="page">Home</a></li>
+      <li><a href="/tonerde">Tonerde</a></li>
+      <li><a href="/reconvilier">Reconvilier</a></li>
+      <li><a href="/kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <main class="slider" id="slider">
+    <div class="layer" id="layerA"><img id="imgA"></div>
+    <div class="layer" id="layerB"><img id="imgB"></div>
+
+    <div class="controls">
+      <button class="btn" id="prevBtn">‹</button>
+      <button class="btn" id="nextBtn">›</button>
+    </div>
+
+    <div class="footer">
+      <div class="dots" id="dots"></div>
+      <div style="display:flex;gap:10px;">
+        <span class="pill" id="counter">1 / 5</span>
+        <label class="pill">
+          <input type="checkbox" id="autoToggle" checked>
+          Auto
+        </label>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const images = [
+      "http://atelierdufour.ch/img/atelierdufour/2.png",
+      "http://atelierdufour.ch/img/atelierdufour/3.png",
+      "http://atelierdufour.ch/img/atelierdufour/4.png",
+      "http://atelierdufour.ch/img/atelierdufour/5.png",
+      "http://atelierdufour.ch/img/atelierdufour/6.png",
+    ];
+
+    const slider = document.getElementById("slider");
+    const layerA = document.getElementById("layerA");
+    const layerB = document.getElementById("layerB");
+    const imgA = document.getElementById("imgA");
+    const imgB = document.getElementById("imgB");
+    const dotsEl = document.getElementById("dots");
+    const counter = document.getElementById("counter");
+    const autoToggle = document.getElementById("autoToggle");
+
+    const intervalMs = 3000;
+    let index = 0;
+    let activeA = true;
+    let timer = null;
+    let animating = false;
+
+    function updateUI() {
+      counter.textContent = `${index + 1} / ${images.length}`;
+      [...dotsEl.children].forEach((d, i) => {
+        d.setAttribute("aria-current", i === index);
+      });
+    }
+
+    function buildDots() {
+      dotsEl.innerHTML = "";
+      images.forEach((_, i) => {
+        const d = document.createElement("button");
+        d.className = "dot";
+        d.onclick = () => goTo(i, true);
+        dotsEl.appendChild(d);
+      });
+    }
+
+    function setLayer(el, x, animate) {
+      el.style.transition = animate ? "transform 420ms ease" : "none";
+      el.style.transform = `translateX(${x}%)`;
+    }
+
+    function goTo(i, manual) {
+      if (animating) return;
+
+      const nextIndex = (i + images.length) % images.length;
+      if (nextIndex === index) return;
+
+      animating = true;
+      const goingForward = i > index;
+
+      const current = activeA ? layerA : layerB;
+      const next = activeA ? layerB : layerA;
+      const nextImg = activeA ? imgB : imgA;
+
+      nextImg.src = images[nextIndex];
+
+      // Reset positions based on direction
+      const enterX = goingForward ? 100 : -100;
+      const exitX = goingForward ? -100 : 100;
+
+      setLayer(next, enterX, false);
+      setLayer(current, 0, false);
+
+      // Force reflow
+      next.offsetWidth;
+
+      setLayer(next, 0, true);
+      setLayer(current, exitX, true);
+
+      next.addEventListener("transitionend", () => {
+        setLayer(current, 100, false);
+        activeA = !activeA;
+        index = nextIndex;
+        animating = false;
+        updateUI();
+      }, { once: true });
+    }
+
+    function next(manual) { goTo(index + 1, manual); }
+    function prev(manual) { goTo(index - 1, manual); }
+
+    function startAuto() {
+      stopAuto();
+      if (!autoToggle.checked) return;
+      timer = setInterval(() => next(false), intervalMs);
+    }
+
+    function stopAuto() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+
+    autoToggle.addEventListener("change", () => {
+      autoToggle.checked ? startAuto() : stopAuto();
+    });
+
+    document.getElementById("nextBtn").onclick = () => next(true);
+    document.getElementById("prevBtn").onclick = () => prev(true);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") next(true);
+      if (e.key === "ArrowLeft") prev(true);
+    });
+
+    slider.addEventListener("mouseenter", stopAuto);
+    slider.addEventListener("mouseleave", startAuto);
+
+    buildDots();
+    imgA.src = images[0];
+    setLayer(layerA, 0, false);
+    setLayer(layerB, 100, false);
+    updateUI();
+    startAuto();
+  </script>
+
+</body>
+
+</html>
