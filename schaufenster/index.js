@@ -1,14 +1,14 @@
-fetch(`/api/properties.json`)
+fetch(`api/properties.json`)
   .then(response => response.json())
   .then(Propertiesjson => {
 
-      fetch(`/api/object/${Propertiesjson.last_post}/properties.json`)
+      fetch(`api/object/${Propertiesjson.last_post}/properties.json`)
     .then(response => response.json())
     .then(lastObjectPropertiesjson => {
 
     document.getElementById('main-title').textContent = lastObjectPropertiesjson.title;
     document.getElementById('main-description').textContent = lastObjectPropertiesjson.description;
-    document.getElementById("last-img").src = `/api/object/${Propertiesjson.last_post}/img.jpg`;
+    document.getElementById("last-img").src = `api/object/${Propertiesjson.last_post}/img.jpg`;
   })
 
     for (let i = Propertiesjson.last_post; i >= 1; i--) {
