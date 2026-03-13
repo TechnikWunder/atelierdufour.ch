@@ -34,7 +34,7 @@ fetch(`/schaufenster/api/properties.json`)
           ">
             
             <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 8px; flex-shrink: 0; background-color: #f0f0f0;">
-              <img src="/api/object/${number}/img.jpg" 
+              <img src="/schaufenster/api/object/${number}/img.jpg" 
                   alt="Beispielbild" 
                   style="width: 100%; height: 100%; object-fit: cover;">
             </div>
@@ -57,7 +57,7 @@ fetch(`/schaufenster/api/properties.json`)
               ${objectPropertiesjson.description}
             </p>
 
-            <button onclick="window.location.href='/view/?id=${number}'" 
+            <button onclick="window.location.href='/schaufenster/view/?id=${number}'" 
                     style="
                       width: 100%; 
                       padding: 12px; 
