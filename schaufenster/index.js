@@ -45,7 +45,7 @@ fetch(`/schaufenster/api/properties.json`)
             
             <p style="
               font-size: 1em; 
-              color: #444; 
+              color: #555; 
               line-height: 1.5;
               margin-bottom: 20px; 
               flex-grow: 1; 
@@ -61,7 +61,7 @@ fetch(`/schaufenster/api/properties.json`)
                     style="
                       width: 100%; 
                       padding: 12px; 
-                      background-color: #007bff; 
+                      background-color: #555; 
                       color: white; 
                       border: none; 
                       border-radius: 6px; 
@@ -72,8 +72,8 @@ fetch(`/schaufenster/api/properties.json`)
                       flex-shrink: 0;
                       transition: background 0.2s;
                     "
-                    onmouseover="this.style.backgroundColor='#0056b3'"
-                    onmouseout="this.style.backgroundColor='#007bff'">
+                    onmouseover="this.style.backgroundColor='#333'"
+                    onmouseout="this.style.backgroundColor='#555'">
               Anschauen
             </button>
           </div>
