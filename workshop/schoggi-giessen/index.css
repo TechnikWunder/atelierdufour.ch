@@ -1,0 +1,197 @@
+:root {
+  --bg: #fff8f0;
+  --card: #ffffff;
+  --text: #2e2a24;
+  --muted: #7a6e64;
+  --accent1: #fde8cc;
+  --accent2: #fcd5b4;
+  --shadow: 0 14px 40px rgba(160, 100, 40, .14);
+  --radius: 20px;
+  --max: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, var(--accent2), transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, var(--accent1), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.nav-modern {
+  width: 100%;
+  background: #333;
+  color: #fff;
+  overflow: visible;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.nav-modern ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-modern li {
+  position: relative;
+}
+
+.nav-modern a {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 15px;
+  display: block;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.nav-modern a:hover {
+  background: #666;
+}
+
+.nav-modern .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 0 0 14px 14px;
+  top: 100%;
+  left: 0;
+}
+
+.nav-modern li:hover .dropdown-content {
+  display: block;
+}
+
+.nav-modern .dropdown-content a {
+  padding: 12px 15px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.nav-modern .dropdown-content a:hover {
+  background-color: #666;
+}
+
+@media (max-width: 600px) {
+  .nav-modern .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 248, 240, .95)),
+    url("http://atelierdufour.ch/assets/atelierdufour/img/2.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-inner {
+  width: 100%;
+  padding: 600px 0 0;
+}
+
+.hero-card {
+  width: 100%;
+  background: rgba(255, 255, 255, .86);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  color: #5a3010;
+}
+
+main {
+  padding: 50px 0 80px;
+}
+
+section {
+  margin-bottom: 32px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  color: #7a3a10;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+ul {
+  padding-left: 18px;
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+li {
+  margin: 6px 0;
+}
+
+strong {
+  color: #5a3010;
+}
+
+.form-wrap {
+  overflow: hidden;
+  border-radius: 16px;
+  padding-bottom: 40px;
+}
+
+.form-iframe {
+  width: 100%;
+  height: 600px;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

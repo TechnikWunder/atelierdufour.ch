@@ -6,177 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kontakt – Atelier Dufour</title>
 
-  <style>
-    :root {
-      --bg: #f5f5f5;
-      --fg: #222;
-      --accent: #0066cc;
-      --dark: #111;
-      --radius: 12px;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 16px;
-    }
-
-    .nav-modern {
-      width: 100%;
-      max-width: 900px;
-      background: #333;
-      color: #fff;
-      overflow: hidden;
-      border-radius: 14px;
-      margin-bottom: 24px;
-    }
-
-    .nav-modern ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .nav-modern a {
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 15px;
-      display: block;
-      text-align: center;
-      flex: 1 1 auto;
-      white-space: nowrap;
-    }
-
-    .nav-modern a:hover {
-      background: #666;
-      text-decoration: none;
-    }
-
-    main {
-      width: 100%;
-      max-width: 900px;
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-      padding: 32px;
-      box-sizing: border-box;
-    }
-
-    h1 {
-      margin: 0 0 24px;
-      font-size: 2rem;
-    }
-
-    .content-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-    }
-
-    @media (min-width: 768px) {
-      .content-wrapper {
-        flex-direction: row;
-        align-items: flex-start;
-      }
-
-      address {
-        flex: 1;
-        min-width: 280px;
-      }
-
-      .map {
-        flex: 1.5;
-        margin-top: 0 !important;
-      }
-    }
-
-    address {
-      font-style: normal;
-      line-height: 1.6;
-      font-size: 1.05rem;
-    }
-
-    address p {
-      margin: 12px 0;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .nav-button {
-      display: inline-block;
-      margin-top: 24px;
-      padding: 14px 22px;
-      border-radius: var(--radius);
-      background: var(--dark);
-      color: #fff;
-      font-weight: 700;
-      letter-spacing: .3px;
-      transition: transform .15s ease, box-shadow .15s ease;
-      text-align: center;
-    }
-
-    .nav-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, .25);
-    }
-
-    .map {
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .map iframe {
-      width: 100%;
-      height: 360px;
-      border: 0;
-      display: block;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 12px;
-      }
-
-      main {
-        padding: 24px 16px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, .05);
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      .nav-button {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .map iframe {
-        height: 300px;
-      }
-
-      .nav-modern {
-        border-radius: 12px;
-        margin-bottom: 16px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -186,6 +16,15 @@
       <li><a href="/tonerde">Tonerde</a></li>
       <li><a href="/reconvilier">Reconvilier</a></li>
       <li><a href="/schaufenster">Schaufenster</a></li>
+      <li class="dropdown">
+        <a href="/workshops">Workshops</a>
+        <div class="dropdown-content">
+          <a href="/workshop/schoggi-giessen">Schoggi giessen</a>
+          <a href="/workshop/pappmache">Pappmaché</a>
+          <a href="/workshop/siebdruck">Siebdruck</a>
+          <a href="/workshop/offenes-atelier">Offenes Atelier</a>
+        </div>
+      </li>
       <li><a href="/ueber-mich">Über mich</a></li>
       <li><a href="/kontakt" aria-current="page">Kontakt</a></li>
     </ul>

@@ -5,170 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Integrales Gestalten mit Tonerde INTON®</title>
-
-  <style>
-    :root {
-      --bg: #eef3ff;
-      --card: #ffffff;
-      --text: #2b2e44;
-      --muted: #5c638a;
-      --accent1: #cfd9ff;
-      --accent2: #e6d9ff;
-      --shadow: 0 14px 40px rgba(90, 80, 160, .18);
-      --radius: 20px;
-      --max: 1100px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 600px at 10% -10%, var(--accent2), transparent 60%),
-        radial-gradient(900px 500px at 90% 0%, var(--accent1), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .nav-modern {
-      width: 100%;
-      background: #333;
-      color: #fff;
-      overflow: hidden;
-      border-radius: 14px;
-      margin-bottom: 16px;
-    }
-
-    .nav-modern ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .nav-modern a {
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 15px;
-      display: block;
-      line-height: normal;
-      text-align: center;
-      flex: 1 1 auto;
-      white-space: nowrap;
-    }
-
-    .nav-modern a:hover {
-      background: #666;
-      text-decoration: none;
-    }
-
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .hero {
-      min-height: 60vh;
-      display: flex;
-      align-items: flex-end;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(238, 243, 255, .95)),
-        url("http://atelierdufour.ch/assets/atelierdufour/img/1.png");
-      background-size: cover;
-      background-position: center;
-    }
-
-    .hero-inner {
-      width: 100%;
-      padding: 600px 0 0;
-    }
-
-    .hero-card {
-      width: 100%;
-      background: rgba(255, 255, 255, .86);
-      backdrop-filter: blur(6px);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 26px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2.4rem;
-      line-height: 1.15;
-      color: #2a2d55;
-    }
-
-    main {
-      padding: 50px 0 80px;
-    }
-
-    section {
-      margin-bottom: 32px;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 26px;
-    }
-
-    h2 {
-      margin: 0 0 10px;
-      font-size: 1.35rem;
-      color: #343a7a;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    p {
-      margin: 0 0 10px;
-    }
-
-    ul {
-      padding-left: 18px;
-      margin: 10px 0 0;
-      color: var(--muted);
-    }
-
-    li {
-      margin: 6px 0;
-    }
-
-    strong {
-      color: #2f3470;
-    }
-
-    .form-wrap {
-      overflow: hidden;
-      border-radius: 16px;
-      padding-bottom: 40px;
-    }
-
-    .form-iframe {
-      width: 100%;
-      height: 2350px;
-      border: 0;
-      display: block;
-    }
-
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="index.css">>
 </head>
 
 <body>
@@ -179,6 +16,15 @@
       <li><a href="/tonerde" aria-current="page">Tonerde</a></li>
       <li><a href="/reconvilier">Reconvilier</a></li>
       <li><a href="/schaufenster">Schaufenster</a></li>
+      <li class="dropdown">
+        <a href="/workshops">Workshops</a>
+        <div class="dropdown-content">
+          <a href="/workshop/schoggi-giessen">Schoggi giessen</a>
+          <a href="/workshop/pappmache">Pappmaché</a>
+          <a href="/workshop/siebdruck">Siebdruck</a>
+          <a href="/workshop/offenes-atelier">Offenes Atelier</a>
+        </div>
+      </li>
       <li><a href="/ueber-mich">Über mich</a></li>
       <li><a href="/kontakt">Kontakt</a></li>
     </ul>
@@ -253,14 +99,20 @@
 
       <section>
         <div class="card">
-          <h2>Anmeldung</h2>
-          <div class="form-wrap">
-            <iframe class="form-iframe"
-              src="https://docs.google.com/forms/d/e/1FAIpQLSfG8v4wCGvgGRq66GWeEuhgqPFFBLVZ8GlpGgPpdC57uoV4jg/viewform?embedded=true"
-              title="Anmeldung">
-            </iframe>
-          </div>
+          <h2>Anmeldung & Kontakt</h2>
+          <p>Für Fragen melde dich direkt bei mir:</p>
+          <p>
+            <a href="tel:+41774531082" style="color:#2f3470;font-weight:600;text-decoration:none;">+41 77 453 10 82</a><br>
+            <a href="mailto:manuela@atelierdufour.ch" style="color:#2f3470;font-weight:600;text-decoration:none;">manuela@atelierdufour.ch</a>
+          </p>
         </div>
+      </section>
+
+      <section class="form-wrap">
+        <iframe class="form-iframe"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfG8v4wCGvgGRq66GWeEuhgqPFFBLVZ8GlpGgPpdC57uoV4jg/viewform?embedded=true"
+          title="Anmeldung">
+        </iframe>
       </section>
 
     </div>

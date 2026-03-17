@@ -6,140 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Über mich – Atelier Dufour</title>
 
-  <style>
-    :root {
-      --bg: #f5f5f5;
-      --fg: #222;
-      --accent: #0066cc;
-      --dark: #111;
-      --radius: 12px;
-      --shadow: 0 10px 30px rgba(0, 0, 0, .08);
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 16px;
-      min-height: 100vh;
-    }
-
-    .nav-modern {
-      width: 100%;
-      max-width: 900px;
-      background: #333;
-      color: #fff;
-      overflow: hidden;
-      border-radius: 14px;
-      margin-bottom: 24px;
-    }
-
-    .nav-modern ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .nav-modern a {
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 15px;
-      display: block;
-      text-align: center;
-      flex: 1 1 auto;
-      white-space: nowrap;
-    }
-
-    .nav-modern a:hover {
-      background: #666;
-      text-decoration: none;
-    }
-
-    main {
-      width: 100%;
-      max-width: 900px;
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 32px;
-      box-sizing: border-box;
-    }
-
-    h1 {
-      margin: 0 0 24px;
-      font-size: 2.2rem;
-      color: var(--dark);
-    }
-
-    .about-container {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    @media (min-width: 768px) {
-      .about-container {
-        flex-direction: row;
-        align-items: flex-start;
-      }
-    }
-
-    .about-image {
-      flex: 1;
-      max-width: 400px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      aspect-ratio: 4/5;
-    }
-
-    .about-text {
-      flex: 1.5;
-      line-height: 1.7;
-      font-size: 1.05rem;
-    }
-
-    .about-text p {
-      margin-top: 0;
-      margin-bottom: 16px;
-    }
-
-    .about-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 12px;
-      }
-
-      main {
-        padding: 24px 16px;
-      }
-
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      .nav-modern {
-        border-radius: 12px;
-        margin-bottom: 16px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -149,6 +16,15 @@
       <li><a href="/tonerde">Tonerde</a></li>
       <li><a href="/reconvilier">Reconvilier</a></li>
       <li><a href="/schaufenster">Schaufenster</a></li>
+      <li class="dropdown">
+        <a href="/workshops">Workshops</a>
+        <div class="dropdown-content">
+          <a href="/workshop/schoggi-giessen">Schoggi giessen</a>
+          <a href="/workshop/pappmache">Pappmaché</a>
+          <a href="/workshop/siebdruck">Siebdruck</a>
+          <a href="/workshop/offenes-atelier">Offenes Atelier</a>
+        </div>
+      </li>
       <li><a href="/ueber-mich" aria-current="page">Über mich</a></li>
       <li><a href="/kontakt">Kontakt</a></li>
     </ul>
