@@ -37,7 +37,9 @@ fetch(`/schaufenster/api/properties.json`)
                   ${objectPropertiesjson.date.from} – ${objectPropertiesjson.date.to}
               </div>
 
-              <a href="${objectPropertiesjson.website}" 
+              <a href="http://${objectPropertiesjson.website}" 
+                target="_blank" 
+                rel="noopener noreferrer"
                 style="
                   display: block; 
                   font-size: 1em; 
