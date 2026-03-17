@@ -5,10 +5,10 @@ fetch(`/schaufenster/api/properties.json`)
     for (let i = Propertiesjson.last_post; i >= 1; i--) {
       let number = i.toString().padStart(3, '0');
 
-        fetch(`/schaufenster/api/object/${number}/properties.json`)
-      .then(response => response.json())
-      .then(objectPropertiesjson => {
-        object.innerHTML += `
+      fetch(`/schaufenster/api/object/${number}/properties.json`)
+        .then(response => response.json())
+        .then(objectPropertiesjson => {
+          object.innerHTML += `
           <div style="
               display: flex; 
               flex-direction: column; 
@@ -37,7 +37,7 @@ fetch(`/schaufenster/api/properties.json`)
                   ${objectPropertiesjson.date.from} – ${objectPropertiesjson.date.to}
               </div>
 
-              <a href="http://${objectPropertiesjson.website}" 
+              <a href="https://${objectPropertiesjson.website}"
                 target="_blank" 
                 rel="noopener noreferrer"
                 style="
@@ -88,6 +88,6 @@ fetch(`/schaufenster/api/properties.json`)
               </button>
           </div>
         `;
-      })
+        })
     }
   })
