@@ -97,7 +97,7 @@ body {
   }
 }
 
-/* Listing Container */
+
 .listing-container {
   width: min(100%, var(--maxw));
   background: var(--card);
@@ -227,7 +227,7 @@ body {
   border: 2px solid var(--primary);
 }
 
-/* Info Section */
+
 .info-section {
   flex: 1 1 50%;
   padding: 30px;

@@ -30,7 +30,7 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Navigation */
+
 .nav-modern {
   width: 100%;
   background: #333;
@@ -101,7 +101,7 @@ body {
   }
 }
 
-/* Slider */
+
 .slider {
   width: min(100%, var(--maxw));
   aspect-ratio: 16/9;

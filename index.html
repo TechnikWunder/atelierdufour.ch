@@ -113,14 +113,12 @@
 
       nextImg.src = images[nextIndex];
 
-      // Reset positions based on direction
       const enterX = goingForward ? 100 : -100;
       const exitX = goingForward ? -100 : 100;
 
       setLayer(next, enterX, false);
       setLayer(current, 0, false);
 
-      // Force reflow
       next.offsetWidth;
 
       setLayer(next, 0, true);

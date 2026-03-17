@@ -157,13 +157,11 @@
       thumbsEl.innerHTML = "";
 
       images.forEach((src, i) => {
-        // Dot
         const d = document.createElement("button");
         d.className = "dot";
         d.onclick = () => goTo(i);
         dotsEl.appendChild(d);
 
-        // Thumbnail
         const t = document.createElement("img");
         t.src = src;
         t.className = "thumb";
